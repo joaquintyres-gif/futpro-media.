@@ -71,7 +71,7 @@
 #modal-cart .payment-discount-price-cart-container { color: #157A3E; font-weight: 600; }
 
 /* botón "Iniciar compra" */
-#modal-cart #ajax-cart-submit-div .btn-primary {
+#modal-cart #ajax-cart-submit-div .btn-primary:not([class*="wallet-lib-storefront"]) {
 	background: #C8F03C !important;
 	border-color: #C8F03C !important;
 	color: #0B3B2E !important;
@@ -85,17 +85,19 @@
 	box-shadow: 0 10px 24px -10px rgba(110, 160, 10, .85);
 	transition: filter .2s, transform .15s;
 }
-#modal-cart #ajax-cart-submit-div .btn-primary:hover { filter: brightness(1.05); transform: translateY(-1px); }
+#modal-cart #ajax-cart-submit-div .btn-primary:not([class*="wallet-lib-storefront"]):hover { filter: brightness(1.05); transform: translateY(-1px); }
 #modal-cart .btn-link { color: #0B3B2E; font-weight: 600; }
 
 /* botón "Comprá con Nube" (pago rápido): verde oscuro para que el texto blanco se lea */
-html body .btn.btn-primary.btn-primary[class*="wallet-lib-storefront"] {
+html body .btn.btn-primary[class*="wallet-lib-storefront"],
+#modal-cart #ajax-cart-submit-div .btn.btn-primary[class*="wallet-lib-storefront"] {
 	background-color: #0B3B2E !important;
 	border-color: #0B3B2E !important;
 	color: #FFFFFF !important;
 	border-radius: 12px;
 }
-html body .btn.btn-primary.btn-primary[class*="wallet-lib-storefront"]:hover { background-color: #12503E !important; }
+html body .btn.btn-primary[class*="wallet-lib-storefront"]:hover,
+#modal-cart #ajax-cart-submit-div .btn.btn-primary[class*="wallet-lib-storefront"]:hover { background-color: #12503E !important; }
 
 /* ---------- Detalles generales de la tienda ---------- */
 .btn-primary { border-radius: 12px; font-weight: 700; }
