@@ -1,0 +1,95 @@
+/* =====================================================================
+   FUTPRO · ESTILO DE TIENDA (verde)  —  agregado al final del CSS avanzado
+   Paleta: verde cancha #0B3B2E · verde #157A3E · lima #C8F03C · lima suave #EEF9C8
+   ===================================================================== */
+
+/* ---------- Carrito (panel lateral) ---------- */
+#modal-cart, #modal-cart .modal-form { font-family: "Poppins", sans-serif; }
+#modal-cart .modal-header {
+	background: #0B3B2E;
+	border-bottom: 0;
+	padding-top: 16px;
+	padding-bottom: 16px;
+}
+#modal-cart .modal-title {
+	color: #FFFFFF;
+	font-weight: 800;
+	font-size: 15px;
+	letter-spacing: .6px;
+	text-transform: uppercase;
+}
+#modal-cart .modal-close,
+#modal-cart .modal-close svg { color: #C8F03C; fill: #C8F03C; }
+#modal-cart .modal-body { background: #F6FAF3; }
+
+#modal-cart .cart-item {
+	background: #FFFFFF;
+	border: 1px solid #E1E8E3;
+	border-radius: 14px;
+	padding: 12px;
+	box-shadow: 0 8px 20px -16px rgba(11, 59, 46, .45);
+}
+#modal-cart .cart-item-image { border-radius: 10px; }
+#modal-cart .cart-item-name { color: #0F1A15; font-weight: 700; text-decoration: none; }
+#modal-cart .cart-item-variant {
+	display: inline-block;
+	margin-top: 4px;
+	padding: 3px 9px;
+	border-radius: 999px;
+	background: #EEF9C8;
+	color: #0B3B2E;
+	font-size: 11.5px;
+	font-weight: 600;
+}
+#modal-cart .cart-item-delete-button { color: #6B7B72; font-size: 12.5px; }
+#modal-cart .cart-item-delete-button:hover { color: #E11D48; }
+#modal-cart .js-cart-item-subtotal { color: #0F1A15; font-weight: 800; }
+#modal-cart .form-quantity {
+	border: 1.5px solid #C5D3C9;
+	border-radius: 10px;
+	overflow: hidden;
+	background: #FFFFFF;
+}
+#modal-cart .form-quantity .form-quantity-icon,
+#modal-cart .form-quantity svg { color: #0B3B2E; fill: #0B3B2E; }
+
+/* barra de envío gratis */
+#modal-cart .cart-progress-card { background: #EEF9C8; border-radius: 14px; }
+#modal-cart .progress-bar-title-container { color: #0B3B2E; font-weight: 700; }
+#modal-cart .bar-progress { background: #D5E4CC; border-radius: 999px; }
+#modal-cart .bar-progress-active {
+	background: linear-gradient(90deg, #C8F03C 0%, #3BB85C 100%) !important;
+	border-radius: 999px;
+}
+#modal-cart .progress-bar-icon,
+#modal-cart .svg-icon-accent { fill: #157A3E; }
+
+/* totales */
+#modal-cart .cart-subtotal { color: #4B5B52; }
+#modal-cart .cart-total { color: #0F1A15; font-weight: 800; }
+#modal-cart .cart-total-price { color: #0B3B2E; font-weight: 900; }
+#modal-cart .payment-discount-price-cart-container { color: #157A3E; font-weight: 600; }
+
+/* botón "Iniciar compra" */
+#modal-cart #ajax-cart-submit-div .btn-primary {
+	background: #C8F03C !important;
+	border-color: #C8F03C !important;
+	color: #0B3B2E !important;
+	font-family: "Poppins", sans-serif;
+	font-weight: 800;
+	font-size: 16px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	border-radius: 12px;
+	min-height: 54px;
+	box-shadow: 0 10px 24px -10px rgba(110, 160, 10, .85);
+	transition: filter .2s, transform .15s;
+}
+#modal-cart #ajax-cart-submit-div .btn-primary:hover { filter: brightness(1.05); transform: translateY(-1px); }
+#modal-cart .btn-link { color: #0B3B2E; font-weight: 600; }
+
+/* ---------- Detalles generales de la tienda ---------- */
+.btn-primary { border-radius: 12px; font-weight: 700; }
+.btn-primary:focus-visible { outline: 3px solid #0B3B2E; outline-offset: 2px; }
+.text-accent, .payment-discount-price-product-container { color: #157A3E; }
+.js-addtocart.btn-transition, .js-addtocart[disabled], .js-addtocart.disabled { opacity: .85; }
