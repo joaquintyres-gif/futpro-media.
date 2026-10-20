@@ -74,7 +74,7 @@
 
     /* Fotos y videos de la landing (carpeta "media"):
          futpro-instinto.mp4 · futpro-en-casa.mp4 · futpro-paso-1.mp4 ·
-         futpro-paso-2.jpg · futpro-paso-3.mp4
+         futpro-paso-2.jpg · futpro-paso-3.mp4 · futpro-pack-1.jpg · futpro-pack-2.jpg
          (+ un .jpg con el mismo nombre de cada video: es la foto que se ve mientras carga)
        Subí la carpeta a un lugar público y pegá acá su dirección, terminada en /.
        Ej. con GitHub + jsDelivr: 'https://cdn.jsdelivr.net/gh/USUARIO/REPO@main/media/'
@@ -136,7 +136,7 @@
           comparar: '',           // precio tachado: solo si es real (o cargá el promocional en la variante)
           badge: '',
           elegido: false,
-          imagen: '',             // URL opcional (si no, se dibuja un ícono)
+          imagen: 'futpro-pack-1.jpg',   // foto chica del pack (carpeta media o URL completa; vacío = ícono dibujado)
           bonuses: [   // las medias de regalo se arman solas al pie (ver CONFIG.regalo)
             { icon: 'qr',     texto: 'Acceso a las clases por QR' },
             { icon: 'truck',  texto: 'Envío gratis a todo el país' }
@@ -151,7 +151,7 @@
           comparar: '',
           badge: 'Más elegido',
           elegido: true,
-          imagen: '',
+          imagen: 'futpro-pack-2.jpg',
           bonuses: [   // las medias de regalo se arman solas al pie (ver CONFIG.regalo)
             { icon: 'qr',     texto: 'Acceso a las clases por QR' },
             { icon: 'users',  texto: 'Entrenan juntos y se desafían' },
@@ -1037,7 +1037,8 @@
     var bon = (p.bonuses || []).map(function (b) {
       return '<div class="gpx-bonus"><span class="gpx-bonus__ic">' + I(b.icon) + '</span><span>' + tx(b.texto) + '</span>' + (b.regalo ? '<span class="gpx-free">Regalo</span>' : '') + '</div>';
     }).join('');
-    var thumb = hasSrc(p.imagen) ? '<img src="' + esc(p.imagen) + '" alt="">' : matThumb(p.unidades || 1);
+    var pim = resolver(p.imagen);
+    var thumb = pim ? '<img src="' + esc(pim) + '" alt="' + esc(p.nombre) + '">' : matThumb(p.unidades || 1);
     return '<div class="gpx-pack' + (sel ? ' is-sel' : '') + '" role="radio" tabindex="0" aria-checked="' + sel + '" data-i="' + i + '">'
       + (p.badge ? '<div class="gpx-pack__badge">' + tx(p.badge) + '</div>' : '')
       + '<div class="gpx-pack__top"><span class="gpx-radio"></span><span class="gpx-pack__thumb">' + thumb + '</span>'
@@ -1401,7 +1402,7 @@
   function buildSticky(anchor) {
     var node = el('<div class="gpx-root gpx-sticky" aria-hidden="true"><div class="gpx-sticky__in"><span class="gpx-sticky__th"></span><div class="gpx-sticky__info"><div class="gpx-sticky__n"></div><div class="gpx-sticky__p"></div></div><button type="button" class="gpx-sticky__b">' + tx(CONFIG.barraFija.boton) + '</button></div></div>');
     function upd(p) {
-      $('.gpx-sticky__th', node).innerHTML = hasSrc(p.imagen) ? '<img src="' + esc(p.imagen) + '" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:11px">' : matThumb(p.unidades || 1);
+      $('.gpx-sticky__th', node).innerHTML = resolver(p.imagen) ? '<img src="' + esc(resolver(p.imagen)) + '" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:11px">' : matThumb(p.unidades || 1);
       $('.gpx-sticky__n', node).innerHTML = tx(p.nombre) + ' · ' + tx(p.descripcion);
       $('.gpx-sticky__p', node).innerHTML = (p._precio != null ? money(p._precio) : tx(p.precio)) + (p._comparar ? '<s>' + money(p._comparar) + '</s>' : '');
     }
