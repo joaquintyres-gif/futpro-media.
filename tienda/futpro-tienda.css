@@ -88,6 +88,15 @@
 #modal-cart #ajax-cart-submit-div .btn-primary:hover { filter: brightness(1.05); transform: translateY(-1px); }
 #modal-cart .btn-link { color: #0B3B2E; font-weight: 600; }
 
+/* botón "Comprá con Nube" (pago rápido): verde oscuro para que el texto blanco se lea */
+.btn.btn-primary[class*="wallet-lib-storefront"] {
+	background: #0B3B2E !important;
+	border-color: #0B3B2E !important;
+	color: #FFFFFF !important;
+	border-radius: 12px;
+}
+.btn.btn-primary[class*="wallet-lib-storefront"]:hover { background: #12503E !important; }
+
 /* ---------- Detalles generales de la tienda ---------- */
 .btn-primary { border-radius: 12px; font-weight: 700; }
 .btn-primary:focus-visible { outline: 3px solid #0B3B2E; outline-offset: 2px; }
